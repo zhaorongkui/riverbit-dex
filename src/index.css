@@ -1,0 +1,163 @@
+@config "../tailwind.config.ts";
+@import "tailwindcss";
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animate-fadein {
+  animation: fadein 0.3s;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
+
+a {
+  font-weight: 500;
+  text-decoration: inherit;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Trebuchet MS";
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:focus,
+button:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+button:disabled {
+  @apply cursor-not-allowed opacity-30;
+}
+input:focus,
+input:focus-visible {
+  outline: none;
+}
+
+@layer components {
+  /* Button Style */
+  .button-Primary {
+    @apply text-center py-2 rounded-lg bg-Button_Primary text-Dark_Tier0 font-bold! select-none cursor-pointer border-4 border-transparent;
+    @apply hover:bg-Button_Primary/90;
+    @apply active:bg-Button_Primary/30;
+    @apply focus:border-Button_Primary/50;
+  }
+
+  .button-Secondary-2 {
+    @apply text-center py-2 rounded-lg bg-Dark_Main text-Dark_Tier1 font-bold! select-none cursor-pointer border-4 border-transparent;
+    @apply hover:bg-Dark_Main/90;
+    @apply active:bg-Dark_Main/30;
+    @apply focus:border-Dark_Main/50;
+  }
+
+  .button-Secondary {
+    @apply text-center py-2 rounded-lg bg-Dark_Tier3 text-Dark_Main font-bold! select-none cursor-pointer border-4 border-transparent;
+    @apply hover:bg-Dark_Tier3/90;
+    @apply active:bg-Dark_Tier3/30;
+    @apply focus:border-Dark_Tier4/50;
+    @apply disabled:text-Dark_Placeholder;
+  }
+
+  .button-Outline {
+    @apply text-center py-2 rounded-lg bg-transparent text-Dark_Main font-bold! select-none cursor-pointer border-4 border-Dark_Tier3;
+    @apply hover:bg-Dark_Tier1;
+    @apply active:bg-Dark_Tier2;
+    @apply focus:bg-Dark_Tier1 focus:border-Dark_Tier4;
+    @apply disabled:border-Dark_Placeholder disabled:text-Dark_Placeholder;
+  }
+
+  .button-Ghost {
+    @apply text-center py-2 rounded-lg bg-transparent text-Button_Primary font-bold! select-none cursor-pointer border-4 border-transparent;
+    @apply hover:bg-Dark_Tier1;
+    @apply active:bg-Dark_Main/30;
+    @apply focus:border-Dark_Main/50;
+    @apply disabled:text-Dark_Placeholder;
+    @apply placeholder:text-Dark_Placeholder;
+  }
+
+  /* Input Style */
+  .input-default {
+    @apply bg-Dark_Tier0 rounded-lg px-3 py-2.5 border border-Dark_Tier3 text-Dark_Main outline-none;
+    @apply hover:border-Button_Primary;
+    @apply focus:border-Button_Primary;
+    @apply disabled:bg-Dark_Tier2 disabled:border-Dark_Tier3 disabled:text-Dark_Tier4;
+  }
+
+  .input-defult::placeholder {
+    @apply text-Dark_Placeholder;
+  }
+
+  /* transation default */
+  .transition-default,
+  .transition-default * {
+    @apply transition-all duration-200;
+  }
+
+  /* Scrollbar Style */
+  .custom-scrollbar {
+    @apply overflow-y-auto;
+  }
+  .custom-scrollbar-x {
+    @apply overflow-x-auto;
+  }
+  .custom-scrollbar::-webkit-scrollbar,
+  .custom-scrollbar-x::-webkit-scrollbar {
+    @apply w-0 h-0;
+    @apply md:w-2 md:h-2;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb,
+  .custom-scrollbar-x::-webkit-scrollbar-thumb {
+    @apply bg-Dark_Tier3 rounded-md;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover,
+  .custom-scrollbar-x::-webkit-scrollbar-thumb:hover {
+    @apply bg-Dark_Tier4; /* 滑块悬停颜色 */
+  }
+  .custom-scrollbar::-webkit-scrollbar-track,
+  .custom-scrollbar-x::-webkit-scrollbar-track {
+    @apply bg-transparent rounded-md;
+  }
+}

@@ -1,0 +1,103 @@
+@import './colors.css';
+
+/* 强制修改 TradingView 背景色 - 使用更通用的选择器 */
+.tv-chart-container,
+.tv-chart-container *,
+.chart-container,
+.chart-container *,
+.layout__area--center,
+.layout__area--left,
+.layout__area--right,
+.wrap-3ljHn4gg,
+.container-SFlFavCn {
+  background-color: #0D1417 !important;
+  background: #0D1417 !important;
+}
+
+/* 使用属性选择器匹配动态类名 */
+[class*="group-"] {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏区域 - 使用更通用的选择器 */
+[class*="header"] {
+  background-color: #0D1417 !important;
+}
+
+/* 所有包含 group 的类 */
+div[class*="group"] {
+  background-color: #0D1417 !important;
+}
+
+/* 主图表区域 */
+.pane-legend-line,
+.chart-markup-table,
+.chart-container-border {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏背景 */
+.header-chart-panel,
+.chart-controls-bar,
+.chart-controls-bar * {
+  background-color: #0D1417 !important;
+}
+
+/* 价格刻度区域 */
+.chart-price-axis,
+.chart-price-axis * {
+  background-color: #0D1417 !important;
+}
+
+/* 时间刻度区域 */
+.chart-time-axis,
+.chart-time-axis * {
+  background-color: #0D1417 !important;
+}
+
+/* 成交量面板 */
+.study-legend-panel,
+.study-legend-panel * {
+  background-color: #0D1417 !important;
+}
+
+/* 十字线文字背景 */
+.crosshair-label {
+  background-color: #0D1417 !important;
+  border: 1px solid #1E2A32 !important;
+  color: #8B9AAA !important;
+}
+
+/* 覆盖所有可能的背景元素 */
+div[style*="background"] {
+  background-color: #0D1417 !important;
+}
+
+[class^="group-MBOVGQRI"] {
+  background-color: red !important;
+}
+.js-rootresizer__contents .toolbar-qqNP9X6e .wrapOverflow-wXGVFOC9 .group-MBOVGQRI {
+  position: relative;
+  background-color: red !important;
+}
+/* 覆盖目标类 .group-MBOVGQRI 的背景色 */
+/* .group-MBOVGQRI {
+  background-color: #0D1417 !important;
+  border-color: #1E2A32 !important;
+} */
+
+/* 补充其他需要覆盖的样式（根据实际需求添加） */
+/* 例如图表容器背景 */
+.wrapOverflow-wXGVFOC9 .content-OhqNVIYA .innerWrap-OhqNVIYA .tv-chart-container {
+  background-color: #0D1417 !important;
+}
+
+/* 时间轴背景 */
+.tv-time-scale {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏背景 */
+.tv-top-toolbar {
+  background-color: #0D1417 !important;
+}

@@ -1,0 +1,9 @@
+{
+  "buildCommand": "corepack enable && pnpm install && pnpm run build",
+  "outputDirectory": "dist",
+  "installCommand": "corepack enable && pnpm install",
+  "git": {
+    "deploymentEnabled": false
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}

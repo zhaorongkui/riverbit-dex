@@ -1,0 +1,34 @@
+
+/* Light 主题 */
+:root:not(.theme-dark) {
+  --tv-color-platform-background: #F7F8F8; /* 使用您的 D30 颜色 */
+  --tv-color-pane-background: #ffffff;
+  --tv-color-pane-background-secondary: #EBEEF0; /* 使用您的 D70 颜色 */
+  --tv-color-toolbar-button-background-hover: #E2E7E9; /* 使用您的 D100 颜色 */
+  --tv-color-toolbar-button-background-secondary-hover: #C5CFD3; /* 使用您的 D200 颜色 */
+  --tv-color-toolbar-button-background-expanded: #0EECBC; /* 使用您的 Button_Primary 颜色 */
+  --tv-color-toolbar-button-text: #5C6970; /* 使用您的 D600 颜色 */
+  --tv-color-toolbar-button-text-hover: #070E12; /* 使用您的 Dark_Tier0 颜色 */
+  --tv-color-toolbar-button-text-active: #0EECBC; /* 使用您的 Button_Primary 颜色 */
+  --tv-color-toolbar-button-text-active-hover: #0EECBC;
+  --tv-color-item-active-text: #0EECBC;
+  --tv-color-toolbar-toggle-button-background-active: #0EECBC;
+  --tv-color-toolbar-toggle-button-background-active-hover: #0bd1a7;
+}
+
+/* Dark 主题 */
+.theme-dark:root {
+  --tv-color-platform-background: #070E12; /* 使用您的 Dark_Tier0 颜色 */
+  --tv-color-pane-background: #0D1417; /* 使用您的 Dark_Tier1 颜色 */
+  --tv-color-pane-background-secondary: #151B1E; /* 使用您的 Dark_Tier2 颜色 */
+  --tv-color-toolbar-button-background-hover: #1F292E; /* 使用您的 Dark_Tier3 颜色 */
+  --tv-color-toolbar-button-background-secondary-hover: #354046; /* 使用您的 Dark_Tier4 颜色 */
+  --tv-color-toolbar-button-background-expanded: #0EECBC;
+  --tv-color-toolbar-button-text: #75838A; /* 使用您的 Dark_Secondary 颜色 */
+  --tv-color-toolbar-button-text-hover: #EBEEF0; /* 使用您的 Dark_Main 颜色 */
+  --tv-color-toolbar-button-text-active: #0EECBC;
+  --tv-color-toolbar-button-text-active-hover: #0EECBC;
+  --tv-color-item-active-text: #0EECBC;
+  --tv-color-toolbar-toggle-button-background-active: #0EECBC;
+  --tv-color-toolbar-toggle-button-background-active-hover: #0bd1a7;
+}
