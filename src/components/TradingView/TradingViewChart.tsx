@@ -1,45 +1,62 @@
-// components/TradingViewChart.js
+// components/TradingViewChart.tsx
 import React, { useEffect, useRef } from 'react';
 
-const TradingViewChart = () => {
-  const chartContainerRef = useRef(null);
-  const tvWidgetRef = useRef(null);
+declare global {
+  interface Window {
+    TradingView: any;
+    Datafeeds?: any;
+  }
+}
+
+const TradingViewChart: React.FC = () => {
+  const chartContainerRef = useRef<HTMLDivElement>(null);
+  const tvWidgetRef = useRef<any>(null);
 
   useEffect(() => {
-    // 确保在客户端执行
     if (typeof window !== 'undefined' && chartContainerRef.current) {
-      // 动态导入 TradingView 库
-      const script = document.createElement('script');
-      script.src = '/charting_library/charting_library.min.js';
-      script.async = true;
-      
-      script.onload = () => {
-        initializeChart();
-      };
-
-      document.head.appendChild(script);
+      // 先加载基础的 datafeed 文件
+      loadScript('/datafeeds/udf/src/udf-compatible-datafeed.js', () => {
+        // 然后加载图表库
+        loadScript('/charting_library/charting_library.js', initializeChart);
+      });
 
       return () => {
-        // 清理函数
         if (tvWidgetRef.current) {
           tvWidgetRef.current.remove();
           tvWidgetRef.current = null;
-        }
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
         }
       };
     }
   }, []);
 
+  const loadScript = (src: string, onLoad: () => void) => {
+    const script = document.createElement('script');
+    script.src = src;
+    script.async = true;
+    script.onload = onLoad;
+    script.onerror = () => {
+      console.error(`Failed to load script: ${src}`);
+    };
+    document.head.appendChild(script);
+  };
+
   const initializeChart = () => {
+    if (!chartContainerRef.current) {
+      console.error('Chart container not available');
+      return;
+    }
+
+    // 检查 Datafeeds 是否已加载
+    if (!window.Datafeeds) {
+      console.error('Datafeeds not loaded');
+      return;
+    }
+
     const widgetOptions = {
-      symbol: 'BTCUSDT', // 默认交易对
-      interval: '1D',    // 时间间隔
+      symbol: 'BTCUSDT',
+      interval: '1D',
       container: chartContainerRef.current,
-      datafeed: new window.Datafeeds.UDFCompatibleDatafeed(
-        '/datafeeds/udf'
-      ),
+      datafeed: new window.Datafeeds.UDFCompatibleDatafeed('/datafeeds/udf'),
       library_path: '/charting_library/',
       locale: 'zh',
       disabled_features: [
@@ -57,7 +74,11 @@ const TradingViewChart = () => {
       timezone: 'Asia/Shanghai',
     };
 
-    tvWidgetRef.current = new window.TradingView.widget(widgetOptions);
+    try {
+      tvWidgetRef.current = new window.TradingView.widget(widgetOptions);
+    } catch (error) {
+      console.error('Error creating TradingView widget:', error);
+    }
   };
 
   return (
