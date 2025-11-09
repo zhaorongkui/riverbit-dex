@@ -77,6 +77,7 @@ const Trading = () => {
   const [showAllFundingHistory, setShowAllFundingHistory] = useState(false);
   const [showAllOrderHistory, setShowAllOrderHistory] = useState(false);
   const [unitGranularity, setUnitGranularity] = useState('0.001');
+  const [theme, setTheme] = useState('dark');
   const [perpetualMarkets, setPerpetualMarkets] = useState({});
   const [perpetualMarketsInType, setPerpetualMarketsInType] = useState({});
 
@@ -1298,9 +1299,13 @@ const Trading = () => {
                     scrolling="no"
                     allowFullScreen
                   /> */}
-                  <TradingViewChart
+                  {/* <TradingViewChart
                     granularity={granularity}
                     selectedAssetSymbol={selectedAssetSymbol}
+                  /> */}
+                  <TradingViewChart
+                    theme={theme}
+                    symbol={'BTCUSDT'}
                   />
                 </div>
 
