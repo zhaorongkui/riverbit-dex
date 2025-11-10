@@ -18,9 +18,11 @@
 
 /* Dark 主题 */
 .theme-dark:root {
-  --tv-color-platform-background: #070E12; /* 使用您的 Dark_Tier0 颜色 */
-  --tv-color-pane-background: #0D1417; /* 使用您的 Dark_Tier1 颜色 */
+  --tv-color-platform-background: #0D1417; /* rgb(13, 20, 23) */
+  --tv-color-pane-background: #0D1417; /* rgb(13, 20, 23) */
   --tv-color-pane-background-secondary: #151B1E; /* 使用您的 Dark_Tier2 颜色 */
+  --tv-color-toolbar-background: #0D1417; /* rgb(13, 20, 23) - 工具栏背景色 */
+  --tv-color-toolbar-button-background: #0D1417; /* 工具栏按钮背景色 */
   --tv-color-toolbar-button-background-hover: #1F292E; /* 使用您的 Dark_Tier3 颜色 */
   --tv-color-toolbar-button-background-secondary-hover: #354046; /* 使用您的 Dark_Tier4 颜色 */
   --tv-color-toolbar-button-background-expanded: #0EECBC;
@@ -31,4 +33,53 @@
   --tv-color-item-active-text: #0EECBC;
   --tv-color-toolbar-toggle-button-background-active: #0EECBC;
   --tv-color-toolbar-toggle-button-background-active-hover: #0bd1a7;
+}
+
+/* TradingView 工具栏和标题栏背景色覆盖 */
+.tv-top-toolbar,
+.tv-top-toolbar *,
+[class*="toolbar"],
+[class*="toolbar-"],
+[class*="header"],
+[class*="header-chart"],
+.header-chart-panel,
+.chart-controls-bar,
+.chart-controls-bar *,
+.js-rootresizer__contents .toolbar,
+.js-rootresizer__contents .toolbar *,
+.wrapOverflow-wXGVFOC9,
+.content-OhqNVIYA,
+.innerWrap-OhqNVIYA {
+  background-color: #0D1417 !important; /* rgb(13, 20, 23) */
+}
+
+/* 工具栏按钮容器和所有工具栏相关元素 */
+[class*="group-"],
+[class*="toolbar-"],
+div[class*="toolbar"],
+div[class*="toolbar"] *,
+div[class*="header"],
+div[class*="header"] * {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏按钮背景 */
+button[class*="toolbar"],
+button[class*="button"],
+[class*="button-"] {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏下拉菜单和弹出层 */
+[class*="menu"],
+[class*="dropdown"],
+[class*="popup"] {
+  background-color: #0D1417 !important;
+}
+
+/* 确保所有工具栏相关的 div 元素 */
+div[class*="toolbar"] div,
+div[class*="header"] div,
+div[class*="group"] div {
+  background-color: #0D1417 !important;
 }

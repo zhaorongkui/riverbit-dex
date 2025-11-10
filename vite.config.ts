@@ -30,6 +30,17 @@ export default defineConfig({
         target: "http://13.214.253.55:1317", // Protocol REST API（链上查询）
         changeOrigin: true,
       },
+      "/binance-proxy": {
+        target: "https://api.binance.com",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/binance-proxy/, ""),
+        configure: (proxy, _options) => {
+          proxy.on("proxyReq", (proxyReq, req, _res) => {
+            // 移除 host 头，让代理服务器设置
+            proxyReq.removeHeader("origin");
+          });
+        },
+      },
     },
   },
   build: {

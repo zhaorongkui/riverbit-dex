@@ -1304,7 +1304,7 @@ const Trading = () => {
                     selectedAssetSymbol={selectedAssetSymbol}
                   /> */}
                   <TradingViewChart
-                    theme={theme}
+                    theme={theme === 'dark' ? 'dark' : 'light'}
                     symbol={'BTCUSDT'}
                   />
                 </div>

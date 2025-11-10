@@ -98,6 +98,60 @@ div[style*="background"] {
 }
 
 /* 工具栏背景 */
-.tv-top-toolbar {
+.tv-top-toolbar,
+.tv-top-toolbar * {
   background-color: #0D1417 !important;
+}
+
+/* 标题栏和工具栏的全面覆盖 */
+.js-rootresizer__contents .toolbar,
+.js-rootresizer__contents .toolbar *,
+[class*="toolbar"],
+[class*="toolbar-"],
+[class*="header"],
+[class*="header-"],
+[class*="header-chart"],
+.header-chart-panel,
+.chart-controls-bar,
+.chart-controls-bar *,
+.wrapOverflow-wXGVFOC9,
+.content-OhqNVIYA,
+.innerWrap-OhqNVIYA,
+[class*="group-"] {
+  background-color: #0D1417 !important; /* rgb(13, 20, 23) */
+}
+
+/* 确保工具栏按钮容器也是目标颜色 */
+div[class*="toolbar"],
+div[class*="toolbar"] *,
+div[class*="toolbar"] div,
+div[class*="header"],
+div[class*="header"] *,
+div[class*="header"] div {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏按钮和交互元素 */
+button[class*="toolbar"],
+button[class*="button"],
+[class*="button-"],
+[class*="icon-"],
+[class*="item-"] {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏下拉菜单、弹出层和工具提示 */
+[class*="menu"],
+[class*="dropdown"],
+[class*="popup"],
+[class*="tooltip"],
+[class*="overlay"] {
+  background-color: #0D1417 !important;
+}
+
+/* 工具栏分隔线和边框 */
+[class*="separator"],
+[class*="divider"],
+[class*="border"] {
+  border-color: #1E2A32 !important;
 }
